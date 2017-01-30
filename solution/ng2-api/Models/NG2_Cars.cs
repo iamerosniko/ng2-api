@@ -19,7 +19,7 @@ namespace ng2_api.Models
         public string model { get; set; }
 
         [StringLength(50)]
-        public string fuelTypes { get; set; }
+        public string fuelType { get; set; }
 
         [StringLength(50)]
         public string bodyStyle { get; set; }

@@ -6,27 +6,28 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ng2_api.Models;
 
 namespace ng2_api.Controllers
 {
-    public class CarsController : ApiController
+    public class NG2_CarsController : ApiController
     {
         private NG2Context db = new NG2Context();
 
-        // GET: api/Cars
+        // GET: api/NG2_Cars
         public IQueryable<NG2_Cars> GetNG2_Cars()
         {
             return db.NG2_Cars;
         }
 
-        // GET: api/Cars/5
+        // GET: api/NG2_Cars/5
         [ResponseType(typeof(NG2_Cars))]
-        public IHttpActionResult GetNG2_Cars(int id)
+        public async Task<IHttpActionResult> GetNG2_Cars(int id)
         {
-            NG2_Cars nG2_Cars = db.NG2_Cars.Find(id);
+            NG2_Cars nG2_Cars = await db.NG2_Cars.FindAsync(id);
             if (nG2_Cars == null)
             {
                 return NotFound();
@@ -35,9 +36,9 @@ namespace ng2_api.Controllers
             return Ok(nG2_Cars);
         }
 
-        // PUT: api/Cars/5
+        // PUT: api/NG2_Cars/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutNG2_Cars(int id, NG2_Cars nG2_Cars)
+        public async Task<IHttpActionResult> PutNG2_Cars(int id, NG2_Cars nG2_Cars)
         {
             if (!ModelState.IsValid)
             {
@@ -53,7 +54,7 @@ namespace ng2_api.Controllers
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -70,9 +71,9 @@ namespace ng2_api.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Cars
+        // POST: api/NG2_Cars
         [ResponseType(typeof(NG2_Cars))]
-        public IHttpActionResult PostNG2_Cars(NG2_Cars nG2_Cars)
+        public async Task<IHttpActionResult> PostNG2_Cars(NG2_Cars nG2_Cars)
         {
             if (!ModelState.IsValid)
             {
@@ -80,23 +81,23 @@ namespace ng2_api.Controllers
             }
 
             db.NG2_Cars.Add(nG2_Cars);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = nG2_Cars.id }, nG2_Cars);
         }
 
-        // DELETE: api/Cars/5
+        // DELETE: api/NG2_Cars/5
         [ResponseType(typeof(NG2_Cars))]
-        public IHttpActionResult DeleteNG2_Cars(int id)
+        public async Task<IHttpActionResult> DeleteNG2_Cars(int id)
         {
-            NG2_Cars nG2_Cars = db.NG2_Cars.Find(id);
+            NG2_Cars nG2_Cars = await db.NG2_Cars.FindAsync(id);
             if (nG2_Cars == null)
             {
                 return NotFound();
             }
 
             db.NG2_Cars.Remove(nG2_Cars);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return Ok(nG2_Cars);
         }

@@ -1,0 +1,48 @@
+<h3>Car Detail Component</h3>
+<div *ngIf="currentCar">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th>{{currentCar.id}}</th>
+            </tr>
+            <tr>
+                <th>Brand</th>
+                <th>{{currentCar.brand}}</th>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <th>{{currentCar.model}}</th>
+            </tr>
+            <tr>
+                <th>Fuel Type</th>
+                <th>{{currentCar.fuelType}}</th>
+            </tr>
+            <tr>
+                <th>Body Style</th>
+                <th>{{currentCar.bodyStyle}}</th>
+            </tr>
+            <tr>
+                <th>Top Speed</th>
+                <th>{{currentCar.topSpeed}}</th>
+            </tr>
+            <tr>
+                <th>Power</th>
+                <th>{{currentCar.power}}</th>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary btn-sm" routerLink="/cars">Back to List</a>
+    <br />
+    <button class="btn btn-danger btn-sm" (click)="onDeleteCar(currentCar.id); $event.stopPropagation()">
+        Delete
+    </button>
+    <br />
+    <a class="btn btn-primary btn-sm" routerLink="/caredit/{{currentCar.id}}">Edit</a>
+</div>

@@ -10,7 +10,7 @@ namespace ng2_api.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Angular 2 Form and Routing";
 
             return View();
         }

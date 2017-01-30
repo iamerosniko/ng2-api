@@ -25,7 +25,7 @@ namespace ng2_api.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<NG2_Cars>()
-                .Property(e => e.fuelTypes)
+                .Property(e => e.fuelType)
                 .IsUnicode(false);
 
             modelBuilder.Entity<NG2_Cars>()
