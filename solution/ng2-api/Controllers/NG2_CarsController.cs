@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using ng2_api.Models;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using ng2_api.Models;
 
 namespace ng2_api.Controllers
 {
@@ -20,6 +18,8 @@ namespace ng2_api.Controllers
         // GET: api/NG2_Cars
         public IQueryable<NG2_Cars> GetNG2_Cars()
         {
+            string userName = Environment.UserName;
+            Debug.Print(userName);
             return db.NG2_Cars;
         }
 
