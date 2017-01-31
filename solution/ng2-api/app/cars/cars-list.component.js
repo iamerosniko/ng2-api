@@ -15,16 +15,10 @@ var CarsListComponent = (function () {
     function CarsListComponent(router, carService) {
         this.router = router;
         this.carService = carService;
-        this.mode = 'Observable';
     }
-    // getCars(): void {
-    //     this.carService.getCars().then(cars => this.cars = cars);
-    // }
     CarsListComponent.prototype.getCars = function () {
         var _this = this;
-        this.carService
-            .getCars()
-            .subscribe(function (cars) { return _this.cars = cars; }, function (error) { return _this.errorMessage = error; });
+        this.carService.getCars().then(function (cars) { return _this.cars = cars; });
     };
     CarsListComponent.prototype.ngOnInit = function () {
         this.getCars();

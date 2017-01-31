@@ -17,7 +17,6 @@ var CarFormComponent = (function () {
         this.carService = carService;
         this.router = router;
         this.submitted = false;
-        this.mode = 'Observable';
         this.carsCount = 0;
         this.fuelTypes = [
             'Petrol',
@@ -37,14 +36,9 @@ var CarFormComponent = (function () {
         ];
         this.model = new car_1.Car(0, '', '');
     }
-    // getAllCar(): void {
-    //     this.carService.getCars().then(cars => this.cars = cars);
-    // }
     CarFormComponent.prototype.getAllCar = function () {
         var _this = this;
-        this.carService
-            .getCars()
-            .subscribe(function (cars) { return _this.cars = cars; }, function (error) { return _this.errorMessage = error; });
+        this.carService.getCars().then(function (cars) { return _this.cars = cars; });
     };
     CarFormComponent.prototype.ngOnInit = function () {
         this.getAllCar();

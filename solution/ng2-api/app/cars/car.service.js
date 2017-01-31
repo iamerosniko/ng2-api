@@ -11,13 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 require('rxjs/add/operator/toPromise');
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-require('rxjs/add/operator/catch');
-require('rxjs/add/operator/map');
 var CarService = (function () {
     function CarService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        //private carsUrl = 'api/cars.json';;  // URL to web api
+        //private carsUrl = 'api/cars';  // testing
         this.carsUrl = 'http://localhost:59916/api/ng2_cars';
     }
     ;
@@ -25,34 +23,22 @@ var CarService = (function () {
         return this.http
             .post(this.carsUrl, JSON.stringify(newCar), { headers: this.headers })
             .toPromise()
-            .then(function (res) { return res.json().data; })
+            .then(function (res) { return res.json(); }) // live
             .catch(this.handleError);
     };
-    // getCars(): Promise<Car[]> {
-    //     return this.http
-    //             .get(this.carsUrl, {headers: this.headers})
-    //             .toPromise()
-    //             .then(response => response.json().data as Car[])
-    //             .catch(this.handleError);
-    // }
     CarService.prototype.getCars = function () {
         return this.http
-            .get(this.carsUrl)
-            .map(function (res) { return res.json(); })
+            .get(this.carsUrl, { headers: this.headers })
+            .toPromise()
+            .then(function (response) { return response.json(); }) // live
             .catch(this.handleError);
-    };
-    CarService.prototype.extractData = function (res) {
-        var body = res.json();
-        //body = Array.of(body);
-        //return body.data;
-        return body.data || {};
     };
     CarService.prototype.getCar = function (id) {
         var url = this.carsUrl + "/" + id;
         return this.http
             .get(url)
             .toPromise()
-            .then(function (response) { return response.json().data; })
+            .then(function (response) { return response.json(); }) // live
             .catch(this.handleError);
     };
     CarService.prototype.putCar = function (car) {
