@@ -35,13 +35,12 @@ namespace ng2_api.Controllers
             }
 
             string root = HttpContext.Current.Server.MapPath("~/upload");
-            //var provider = new MultipartFormDataStreamProvider(root);
-            var provider = new MultipartFormDataContent(root);
+            var provider = new MultipartFormDataStreamProvider(root);
             
             try
             {
                 // Read the form data.
-                //await Request.Content.ReadAsMultipartAsync(provider);
+                await Request.Content.ReadAsMultipartAsync(provider);
                 //Request.Content.ReadAsByteArrayAsync(provider);
                 //var bodyStream = new StreamReader(HttpContext.Current.Request.InputStream);
                 //bodyStream.BaseStream.Seek(0, SeekOrigin.Begin);
