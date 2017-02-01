@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var ng2_file_upload_1 = require('ng2-file-upload');
 var UploadComponent = (function () {
     function UploadComponent() {
-        this.uploader = new ng2_file_upload_1.FileUploader({ url: 'http://localhost:3001/upload' });
+        this.uploader = new ng2_file_upload_1.FileUploader({ url: 'api/upload' });
     }
     UploadComponent = __decorate([
         core_1.Component({

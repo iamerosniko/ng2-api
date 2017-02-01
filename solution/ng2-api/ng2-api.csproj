@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="upload\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NG2_CarsController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -185,6 +187,10 @@
     <Content Include="app\cars\cars-list.component.js" />
     <Content Include="app\cars\cars.module.js" />
     <Content Include="app\cars\cars.routing.js" />
+    <Content Include="app\file\file.module.js" />
+    <Content Include="app\file\file.routing.js" />
+    <Content Include="app\file\upload.component.html" />
+    <Content Include="app\file\upload.component.js" />
     <Content Include="app\main.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="favicon.ico" />
@@ -222,6 +228,7 @@
     <Content Include="node_modules\bootstrap\dist\js\bootstrap.min.js" />
     <Content Include="node_modules\core-js\client\shim.min.js" />
     <Content Include="node_modules\jquery\dist\jquery.min.js" />
+    <Content Include="node_modules\ng2-file-upload\bundles\ng2-file-upload.umd.min.js" />
     <Content Include="node_modules\rxjs\add\operator\catch.js" />
     <Content Include="node_modules\rxjs\add\operator\map.js" />
     <Content Include="node_modules\rxjs\add\operator\switchMap.js" />
