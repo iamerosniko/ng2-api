@@ -13,16 +13,17 @@ var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var about_component_1 = require('./about.component');
 var cars_module_1 = require('./cars/cars.module');
+var file_module_1 = require('./file/file.module');
 var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, cars_module_1.CarModule, app_routing_1.AppRouting],
+            imports: [platform_browser_1.BrowserModule, cars_module_1.CarModule, file_module_1.FileModule, app_routing_1.AppRouting],
             declarations: [app_component_1.AppComponent, about_component_1.AboutComponent],
             bootstrap: [app_component_1.AppComponent]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], AppModule);
     return AppModule;
