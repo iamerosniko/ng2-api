@@ -29,6 +29,7 @@ namespace ng2_api.Controllers
         // POST api/upload
         public async Task<HttpResponseMessage> PostFormData()
         {
+            string rawFileName,rawDest;
             // Check if the request contains multipart/form-data.
             if (!Request.Content.IsMimeMultipartContent())
             {
@@ -56,7 +57,11 @@ namespace ng2_api.Controllers
                     Trace.WriteLine("Server file path: " + file.LocalFileName);
                     //Trace.WriteLine(file.Headers);
                     //Trace.WriteLine(root + @"\" + file.Headers.ContentDisposition.FileName.Trim('\"'));
-                    System.IO.File.Move(file.LocalFileName, root + @"\" + file.Headers.ContentDisposition.FileName.Trim('\"'));
+                    rawFileName = file.Headers.ContentDisposition.FileName.Trim('\"');
+                    rawDest =root + @"\" + rawFileName;
+                    if (File.Exists(rawDest))
+                        System.IO.File.Delete(rawDest); 
+                    System.IO.File.Move(file.LocalFileName, rawDest);
                 }
 
 
