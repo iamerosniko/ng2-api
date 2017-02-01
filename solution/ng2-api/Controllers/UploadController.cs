@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web;
 using System.IO;
+using System.Net.Http.Headers;
 
 namespace ng2_api.Controllers
 {
@@ -49,11 +50,14 @@ namespace ng2_api.Controllers
 
 
                 // This illustrates how to get the file names.
-                //foreach (MultipartFileData file in provider.FileData)
-                //{
-                //    //Trace.WriteLine(file.Headers.ContentDisposition.FileName);
-                //    //Trace.WriteLine("Server file path: " + file.LocalFileName);
-                //}
+                foreach (MultipartFileData file in provider.FileData)
+                {
+                    Trace.WriteLine(file.Headers.ContentDisposition.FileName);
+                    Trace.WriteLine("Server file path: " + file.LocalFileName);
+                    //Trace.WriteLine(file.Headers);
+                    //Trace.WriteLine(root + @"\" + file.Headers.ContentDisposition.FileName.Trim('\"'));
+                    System.IO.File.Move(file.LocalFileName, root + @"\" + file.Headers.ContentDisposition.FileName.Trim('\"'));
+                }
 
 
                 return Request.CreateResponse(HttpStatusCode.OK);
