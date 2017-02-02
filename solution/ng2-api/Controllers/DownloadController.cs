@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Web;
+using System.Diagnostics;
 
 namespace ng2_api.Controllers
 {
@@ -33,6 +34,21 @@ namespace ng2_api.Controllers
             {
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
             }
+        }
+
+        public IEnumerable<string> Get()
+        {
+            //filepaths : this is the server's shared folder / upload repo
+            string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath("~/upload"));
+            List<String> files = new List<String>();
+
+            foreach (string filePath in filePaths)
+            {
+                //TRACING : Get all file names in path
+                //Trace.WriteLine(Path.GetFileName(filePath));
+                files.Add(Path.GetFileName(filePath));
+            }
+            return files;
         }
     }
 }
