@@ -42,29 +42,26 @@ namespace ng2_api.Controllers
             try
             {
                 // Read the form data.
+                // this temporarily saved and renamed the file as GUID based format.
                 await Request.Content.ReadAsMultipartAsync(provider);
-                //Request.Content.ReadAsByteArrayAsync(provider);
-                //var bodyStream = new StreamReader(HttpContext.Current.Request.InputStream);
-                //bodyStream.BaseStream.Seek(0, SeekOrigin.Begin);
-                //var bodyText = bodyStream.ReadToEnd();
-                
 
-
-                // This illustrates how to get the file names.
                 foreach (MultipartFileData file in provider.FileData)
                 {
-                    Trace.WriteLine(file.Headers.ContentDisposition.FileName);
-                    Trace.WriteLine("Server file path: " + file.LocalFileName);
-                    //Trace.WriteLine(file.Headers);
-                    //Trace.WriteLine(root + @"\" + file.Headers.ContentDisposition.FileName.Trim('\"'));
+                    //for tracing of files only
+                    //Trace.WriteLine(file.Headers.ContentDisposition.FileName);
+                    //Trace.WriteLine("Server file path: " + file.LocalFileName);
+
+                    //this gets the original name of the uploaded file
                     rawFileName = file.Headers.ContentDisposition.FileName.Trim('\"');
+                    //this concatenates the path of upload folder and original filename
                     rawDest =root + @"\" + rawFileName;
+
+                    //deletes the file if it is existing to upload folder
                     if (File.Exists(rawDest))
                         System.IO.File.Delete(rawDest); 
+                    //renames the temporary GUID name to original name and format
                     System.IO.File.Move(file.LocalFileName, rawDest);
                 }
-
-
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (System.Exception e)
