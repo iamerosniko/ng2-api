@@ -53,6 +53,7 @@ namespace ng2_api.Controllers
 
                     //this gets the original name of the uploaded file
                     rawFileName = file.Headers.ContentDisposition.FileName.Trim('\"');
+
                     //this concatenates the path of upload folder and original filename
                     rawDest =root + @"\" + rawFileName;
 
