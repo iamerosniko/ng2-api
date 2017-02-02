@@ -13,7 +13,7 @@ namespace ng2_api.Controllers
 {
     public class DownloadController : ApiController
     {
-        // GET api/download
+        // GET api/download/Value
         public HttpResponseMessage Get(string filename)
         {
             //server's shared folder / upload repo
@@ -35,7 +35,7 @@ namespace ng2_api.Controllers
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
             }
         }
-
+        //GET api/download
         public IEnumerable<string> Get()
         {
             //filepaths : this is the server's shared folder / upload repo
