@@ -23,7 +23,7 @@ var AppModule = (function () {
             imports: [platform_browser_1.BrowserModule, cars_module_1.CarModule, file_module_1.FileModule, app_routing_1.AppRouting],
             declarations: [app_component_1.AppComponent, about_component_1.AboutComponent],
             bootstrap: [app_component_1.AppComponent]
-        }),
+        }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
     return AppModule;

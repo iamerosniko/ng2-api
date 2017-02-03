@@ -166,6 +166,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\NG2Context.cs" />
     <Compile Include="Models\NG2_Cars.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -188,6 +189,10 @@
     <Content Include="app\cars\cars-list.component.js" />
     <Content Include="app\cars\cars.module.js" />
     <Content Include="app\cars\cars.routing.js" />
+    <Content Include="app\file\download.component.js" />
+    <Content Include="app\file\download.components.html" />
+    <Content Include="app\file\download.service.js" />
+    <Content Include="app\file\file.js" />
     <Content Include="app\file\file.module.js" />
     <Content Include="app\file\file.routing.js" />
     <Content Include="app\file\upload.component.html" />

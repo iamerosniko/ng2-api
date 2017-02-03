@@ -11,8 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var upload_component_1 = require('./upload.component');
+var download_component_1 = require('./download.component');
 var fileRoutes = [
-    { path: 'file/upload', component: upload_component_1.UploadComponent }
+    { path: 'file/upload', component: upload_component_1.UploadComponent },
+    { path: 'download', component: download_component_1.DownloadComponent },
 ];
 var FileRouting = (function () {
     function FileRouting() {

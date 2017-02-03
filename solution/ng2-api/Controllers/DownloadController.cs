@@ -8,7 +8,7 @@ using System.IO;
 using System.Net.Http.Headers;
 using System.Web;
 using System.Diagnostics;
-
+using ng2_api.Models;
 namespace ng2_api.Controllers
 {
     public class DownloadController : ApiController
@@ -36,17 +36,21 @@ namespace ng2_api.Controllers
             }
         }
         //GET api/download
-        public IEnumerable<string> Get()
+        public IEnumerable<FileModel> Get()
         {
             //filepaths : this is the server's shared folder / upload repo
             string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath("~/upload"));
-            List<String> files = new List<String>();
+            List<FileModel> files = new List<FileModel>();
 
             foreach (string filePath in filePaths)
             {
+                FileModel fm = new FileModel();
+                fm.filename=Path.GetFileName(filePath);
+
+                fm.filepath=Path.GetDirectoryName(filePath);
                 //TRACING : Get all file names in path
                 //Trace.WriteLine(Path.GetFileName(filePath));
-                files.Add(Path.GetFileName(filePath));
+                files.Add(fm);
             }
             return files;
         }

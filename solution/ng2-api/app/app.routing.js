@@ -13,7 +13,7 @@ var router_1 = require('@angular/router');
 var about_component_1 = require('./about.component');
 var appRoutes = [
     { path: 'about', component: about_component_1.AboutComponent },
-    { path: '', redirectTo: '/file/upload', pathMatch: 'full' }
+    { path: '', redirectTo: 'download', pathMatch: 'full' }
 ];
 var AppRouting = (function () {
     function AppRouting() {
@@ -22,7 +22,7 @@ var AppRouting = (function () {
         core_1.NgModule({
             imports: [router_1.RouterModule.forRoot(appRoutes, { useHash: true })],
             exports: [router_1.RouterModule]
-        }),
+        }), 
         __metadata('design:paramtypes', [])
     ], AppRouting);
     return AppRouting;
