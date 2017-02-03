@@ -24,7 +24,8 @@ var DownloadComponent = (function () {
         this.getFiles();
     };
     DownloadComponent.prototype.onSelect = function (file) {
-        this.router.navigate(['file/download', file.filename]);
+        //this.router.navigate(['/download', file.filename]);
+        this.downloadService.getFile(file.filename);
     };
     DownloadComponent = __decorate([
         core_1.Component({

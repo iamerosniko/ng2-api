@@ -27,12 +27,11 @@ var DownloadService = (function () {
             .catch(this.handleError);
     };
     DownloadService.prototype.getFile = function (fileName) {
-        var url = this.downloadUrl + "/" + fileName;
+        var url = this.downloadUrl + "/?filename=" + fileName;
         return this.http
             .get(url)
-            .toPromise()
-            .then(function (response) { return response.json(); }) // live
-            .catch(this.handleError);
+            .toPromise();
+        //.then(response => response.json().data as File)  // testing
     };
     DownloadService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only

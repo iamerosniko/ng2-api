@@ -9,11 +9,14 @@ using System.Net.Http.Headers;
 using System.Web;
 using System.Diagnostics;
 using ng2_api.Models;
+using System.Web.Http.Description;
+
 namespace ng2_api.Controllers
 {
     public class DownloadController : ApiController
     {
         // GET api/download/Value
+        [ResponseType(typeof(FileModel))]
         public HttpResponseMessage Get(string filename)
         {
             //server's shared folder / upload repo
