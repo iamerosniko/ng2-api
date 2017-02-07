@@ -22,9 +22,11 @@
             '@angular/http': 'npm:@angular/http/bundles/http.umd.min.js',
             '@angular/router': 'npm:@angular/router/bundles/router.umd.min.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.min.js',
+			'file-saver':'npm:file-saver/file-saver.min.js',
             'ng2-file-upload': 'npm:ng2-file-upload/bundles/ng2-file-upload.umd.min.js',
             // other libraries
-            'rxjs': 'npm:rxjs'
+            'rxjs': 'npm:rxjs',
+            'FileSaver': 'FileSaver.min.js'
             //'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension

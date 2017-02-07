@@ -1,22 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Http;
 using System.IO;
-using System.Net.Http.Headers;
 using System.Web;
-using System.Diagnostics;
 using ng2_api.Models;
-using System.Web.Http.Description;
+using System.Web.Mvc;
+using System.Threading.Tasks;
+using System;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace ng2_api.Controllers
 {
     public class DownloadController : ApiController
     {
         // GET api/download/Value
-        [ResponseType(typeof(FileModel))]
+        //public HttpResponseMessage Get(string filename)
+        //{
+        //    //server's shared folder / upload repo
+        //    var path = HttpContext.Current.Server.MapPath("~/upload");
+
+        //    HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
+        //    //reads the path and the file
+        //    try
+        //    {
+        //        var stream = new FileStream(path + "/" + @filename, FileMode.Open);
+        //        result.Content = new StreamContent(stream);
+        //        result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+        //        result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
+        //        //@filename = original name inside the repo
+        //        result.Content.Headers.ContentDisposition.FileName = @filename;
+        //        HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, result.Content);
+        //        return result;
+
+        //    }
+        //    catch
+        //    {
+        //        return new HttpResponseMessage(HttpStatusCode.NotFound);
+        //    }
+        //}
+
         public HttpResponseMessage Get(string filename)
         {
             //server's shared folder / upload repo
@@ -24,20 +47,24 @@ namespace ng2_api.Controllers
 
             HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
             //reads the path and the file
-            try {
+            try
+            {
                 var stream = new FileStream(path + "/" + @filename, FileMode.Open);
                 result.Content = new StreamContent(stream);
                 result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
                 result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
                 //@filename = original name inside the repo
                 result.Content.Headers.ContentDisposition.FileName = @filename;
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, result.Content);
                 return result;
+                
             }
             catch
             {
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
             }
         }
+
         //GET api/download
         public IEnumerable<FileModel> Get()
         {

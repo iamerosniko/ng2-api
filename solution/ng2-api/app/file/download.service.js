@@ -26,12 +26,9 @@ var DownloadService = (function () {
             .then(function (response) { return response.json(); }) // live
             .catch(this.handleError);
     };
-    DownloadService.prototype.getFile = function (fileName) {
-        var url = this.downloadUrl + "/?filename=" + fileName;
-        return this.http
-            .get(url)
-            .toPromise();
-        //.then(response => response.json().data as File)  // testing
+    DownloadService.prototype.getFile = function (fName) {
+        var url = this.downloadUrl + "/?filename=" + fName;
+        var win = window.open(url);
     };
     DownloadService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
