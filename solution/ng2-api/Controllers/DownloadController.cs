@@ -14,32 +14,7 @@ namespace ng2_api.Controllers
 {
     public class DownloadController : ApiController
     {
-        // GET api/download/Value
-        //public HttpResponseMessage Get(string filename)
-        //{
-        //    //server's shared folder / upload repo
-        //    var path = HttpContext.Current.Server.MapPath("~/upload");
-
-        //    HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
-        //    //reads the path and the file
-        //    try
-        //    {
-        //        var stream = new FileStream(path + "/" + @filename, FileMode.Open);
-        //        result.Content = new StreamContent(stream);
-        //        result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-        //        result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
-        //        //@filename = original name inside the repo
-        //        result.Content.Headers.ContentDisposition.FileName = @filename;
-        //        HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, result.Content);
-        //        return result;
-
-        //    }
-        //    catch
-        //    {
-        //        return new HttpResponseMessage(HttpStatusCode.NotFound);
-        //    }
-        //}
-
+        // GET api/download/?filename=Value
         public HttpResponseMessage Get(string filename)
         {
             //server's shared folder / upload repo
