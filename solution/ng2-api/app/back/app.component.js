@@ -9,18 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var ng2_file_upload_1 = require('ng2-file-upload');
-var UploadComponent = (function () {
-    function UploadComponent() {
-        this.uploader = new ng2_file_upload_1.FileUploader({ url: 'api/upload' });
+var AppComponent = (function () {
+    function AppComponent() {
     }
-    UploadComponent = __decorate([
+    AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            templateUrl: 'upload.component.html'
+            selector: 'my-app',
+            templateUrl: 'app.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], UploadComponent);
-    return UploadComponent;
+    ], AppComponent);
+    return AppComponent;
 }());
-exports.UploadComponent = UploadComponent;
+exports.AppComponent = AppComponent;

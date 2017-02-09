@@ -9,23 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var upload_component_1 = require('./upload/upload.component');
-var download_component_1 = require('./download.component');
-var fileRoutes = [
-    { path: 'upload', component: upload_component_1.UploadComponent },
-    { path: 'download', component: download_component_1.DownloadComponent },
-];
-var FileRouting = (function () {
-    function FileRouting() {
+var ng2_file_upload_1 = require('ng2-file-upload');
+var UploadComponent = (function () {
+    function UploadComponent() {
+        this.uploader = new ng2_file_upload_1.FileUploader({ url: 'api/upload' });
     }
-    FileRouting = __decorate([
-        core_1.NgModule({
-            imports: [router_1.RouterModule.forChild(fileRoutes)],
-            exports: [router_1.RouterModule]
+    UploadComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            templateUrl: 'upload-main.component.html',
         }), 
         __metadata('design:paramtypes', [])
-    ], FileRouting);
-    return FileRouting;
+    ], UploadComponent);
+    return UploadComponent;
 }());
-exports.FileRouting = FileRouting;
+exports.UploadComponent = UploadComponent;

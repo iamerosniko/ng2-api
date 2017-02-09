@@ -38,7 +38,6 @@ namespace ng2_api.Controllers
 
             string root = HttpContext.Current.Server.MapPath("~/upload");
             var provider = new MultipartFormDataStreamProvider(root);
-            
             try
             {
                 // Read the form data.

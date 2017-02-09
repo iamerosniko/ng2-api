@@ -9,27 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
+var router_1 = require('@angular/router');
 var about_component_1 = require('./about.component');
-//modules
-var cars_module_1 = require('./cars/cars.module');
-var file_module_1 = require('./file/file.module');
-//var project_tracker_module_1 = require('./project-tracker/project-tracker.module');
-//routing
-var app_routing_1 = require('./app.routing');
-var AppModule = (function () {
-    function AppModule() {
+var appRoutes = [
+    { path: 'about', component: about_component_1.AboutComponent },
+    { path: '', redirectTo: 'download', pathMatch: 'full' }
+];
+var AppRouting = (function () {
+    function AppRouting() {
     }
-    AppModule = __decorate([
+    AppRouting = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, cars_module_1.CarModule, file_module_1.FileModule,
-                 app_routing_1.AppRouting],
-            declarations: [app_component_1.AppComponent, about_component_1.AboutComponent],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [router_1.RouterModule.forRoot(appRoutes, { useHash: true })],
+            exports: [router_1.RouterModule]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], AppRouting);
+    return AppRouting;
 }());
-exports.AppModule = AppModule;
+exports.AppRouting = AppRouting;
